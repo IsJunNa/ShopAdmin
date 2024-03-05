@@ -9,7 +9,7 @@ import 'element-plus/dist/index.css'
 // 设置element默认为中文
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 app.use(ElementPlus, {
-    locale: zhCn
+  locale: zhCn,
 })
 // 导入svg图标配置代码
 import 'virtual:svg-icons-register'
@@ -19,13 +19,9 @@ app.use(GlobalComponents)
 // 引入全局默认样式
 import '@/styles/index.scss'
 
-
-import axios from 'axios';
-
-
-
+import axios from 'axios'
 
 // 挂载
 app.mount('#app')
 
-console.log(import.meta.env);
+console.log(import.meta.env)
