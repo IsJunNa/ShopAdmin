@@ -4,28 +4,28 @@ import home from '@/layout/index.vue'
 import error from '@/views/error/index.vue'
 
 export const constantRoute: RouteRecordRaw[] = [
-    {
-        path: '/',
-        component: login,
-    },
-    {
-        path: '/login',
-        component: login,
-        name: 'login'
-    },
-    {
-        path: '/home',
-        component: home,
-        name: 'home'
-    },
-    {
-        path: '/error',
-        component: error,
-        name: 'error'
-    },
-    {
-        path: '/:pathMatch(.*)*',
-        redirect: '/error',
-        name: 'Any'
-    }
+  {
+    path: '/',
+    component: login,
+  },
+  {
+    path: '/login',
+    component: login,
+    name: 'login',
+  },
+  {
+    path: '/home',
+    component: home,
+    name: 'home',
+  },
+  {
+    path: '/error',
+    component: error,
+    name: 'error',
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/error',
+    name: 'Any',
+  },
 ]
