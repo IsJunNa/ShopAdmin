@@ -18,10 +18,11 @@ import GlobalComponents from '@/components'
 app.use(GlobalComponents)
 // 引入全局默认样式
 import '@/styles/index.scss'
-
-import axios from 'axios'
-
+// 引入路由
+import router from '@/router/index'
+app.use(router)
+// 引入pinia
+import pinia from '@/store'
+app.use(pinia)
 // 挂载
 app.mount('#app')
-
-console.log(import.meta.env)

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import vue from '@vitejs/plugin-vue'
 // 路径管理,给src配置别名,方便管理路径
 import path from 'path'
@@ -10,6 +11,7 @@ import { viteMockServe } from 'vite-plugin-mock'
 export default defineConfig(({ command }) => {
   return {
     plugins: [
+      VueSetupExtend(),
       vue(),
       // svg图标配置
       createSvgIconsPlugin({

@@ -9,7 +9,9 @@ enum API {
   USERINFO_URL = '/user/info',
 }
 
+// 用户登录
 export const reqLogin = (data: loginForm) =>
   request<loginResponseData>({ url: API.LOGIN_URL, data, method: 'POST' })
+// 用户信息
 export const reqUserInfo = () =>
   request<userInfoType>({ url: API.USERINFO_URL, method: 'GET' })
