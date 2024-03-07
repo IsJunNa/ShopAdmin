@@ -7,11 +7,7 @@
       </div>
       <!-- 左侧主导航栏 -->
       <el-scrollbar class="scrollbar">
-        <el-menu
-          class="el-menu"
-          background-color="$left-nav-color"
-          text-color="white"
-        >
+        <el-menu class="el-menu" background-color="$left-nav-color" text-color="white">
           <mainNav :constantRoute="constantRoute"></mainNav>
         </el-menu>
       </el-scrollbar>
@@ -20,7 +16,7 @@
     <div class="topNav"></div>
     <!-- 右侧主内容 -->
     <div class="content">
-      <Main></Main>
+      <Main></Main>>
     </div>
   </div>
 </template>
