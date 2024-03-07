@@ -7,15 +7,31 @@
           <p class="title">{{ setting.name }}</p>
           <el-form :model="loginInfo" :rules="rules" ref="loginForm">
             <el-form-item prop="username">
-              <el-input v-model="loginInfo.username" placeholder="账号" type="text" :prefix-icon="User"
-                class="input"></el-input>
+              <el-input
+                v-model="loginInfo.username"
+                placeholder="账号"
+                type="text"
+                :prefix-icon="User"
+                class="input"
+              ></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input v-model="loginInfo.password" placeholder="密码" type="password" :prefix-icon="Lock" class="input"
-                show-password></el-input>
+              <el-input
+                v-model="loginInfo.password"
+                placeholder="密码"
+                type="password"
+                :prefix-icon="Lock"
+                class="input"
+                show-password
+              ></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button type="primary" class="loginBtn" :loading="loadingFlag" @click="userLogin">
+              <el-button
+                type="primary"
+                class="loginBtn"
+                :loading="loadingFlag"
+                @click="userLogin"
+              >
                 登录
               </el-button>
             </el-form-item>
@@ -51,7 +67,6 @@ import getTime from '@/utils/time'
 /* 全局变量 */
 import setting from '@/setting'
 
-
 /* 数据 */
 // 用户登录数据
 let loginInfo = reactive({
@@ -77,10 +92,10 @@ const passwordRules = (_: object, value: string, callback: any) => {
 }
 
 // 自定义的验证规则
-const rules = ({
+const rules = {
   username: [{ validator: usernameRules, trigger: 'blur' }],
   password: [{ validator: passwordRules, trigger: 'blur' }],
-})
+}
 
 // element自带表单验证
 /* const rules = {

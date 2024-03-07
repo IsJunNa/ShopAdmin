@@ -19,10 +19,10 @@ export const constantRoute: RouteRecordRaw[] = [
     path: '/',
     component: login,
     meta: {
-      title: '登录',// 路由名称
-      hidden: true,// 是否隐藏
-      icon: 'User'// 图标
-    }
+      title: '登录', // 路由名称
+      hidden: true, // 是否隐藏
+      icon: 'User', // 图标
+    },
   },
   {
     path: '/login',
@@ -30,8 +30,8 @@ export const constantRoute: RouteRecordRaw[] = [
     name: 'login',
     meta: {
       title: '登录',
-      hidden: true
-    }
+      hidden: true,
+    },
   },
   {
     path: '/error',
@@ -39,8 +39,8 @@ export const constantRoute: RouteRecordRaw[] = [
     name: 'error',
     meta: {
       title: '404',
-      hidden: true
-    }
+      hidden: true,
+    },
   },
   {
     path: '/:pathMatch(.*)*',
@@ -48,8 +48,8 @@ export const constantRoute: RouteRecordRaw[] = [
     name: 'Any',
     meta: {
       title: '404',
-      hidden: true
-    }
+      hidden: true,
+    },
   },
   {
     path: '/home',
@@ -58,8 +58,8 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '首页',
       hidden: false,
-      icon: 'HomeFilled'
-    }
+      icon: 'HomeFilled',
+    },
   },
   {
     path: '/screen',
@@ -68,8 +68,8 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '数据大屏',
       hidden: false,
-      icon: 'Platform'
-    }
+      icon: 'Platform',
+    },
   },
   {
     path: '/acl',
@@ -78,7 +78,7 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '权限管理',
       hidden: false,
-      icon: 'Lock'
+      icon: 'Lock',
     },
     children: [
       {
@@ -88,8 +88,8 @@ export const constantRoute: RouteRecordRaw[] = [
         meta: {
           title: '用户管理',
           hidden: false,
-          icon: 'User'
-        }
+          icon: 'User',
+        },
       },
       {
         path: '/acl/role',
@@ -98,8 +98,8 @@ export const constantRoute: RouteRecordRaw[] = [
         meta: {
           title: '角色管理',
           hidden: false,
-          icon: 'UserFilled'
-        }
+          icon: 'UserFilled',
+        },
       },
       {
         path: '/acl/permission',
@@ -108,10 +108,10 @@ export const constantRoute: RouteRecordRaw[] = [
         meta: {
           title: '菜单管理',
           hidden: false,
-          icon: 'Monitor'
-        }
-      }
-    ]
+          icon: 'Monitor',
+        },
+      },
+    ],
   },
   {
     path: '/shop',
@@ -120,7 +120,7 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '商品管理',
       hidden: false,
-      icon: 'Goods'
+      icon: 'Goods',
     },
     children: [
       {
@@ -130,8 +130,8 @@ export const constantRoute: RouteRecordRaw[] = [
         meta: {
           title: '品牌管理',
           hidden: false,
-          icon: 'ShoppingCartFull'
-        }
+          icon: 'ShoppingCartFull',
+        },
       },
       {
         path: '/shop/spu',
@@ -140,8 +140,8 @@ export const constantRoute: RouteRecordRaw[] = [
         meta: {
           title: 'spu管理',
           hidden: false,
-          icon: 'Calendar'
-        }
+          icon: 'Calendar',
+        },
       },
       {
         path: '/shop/sku',
@@ -150,8 +150,8 @@ export const constantRoute: RouteRecordRaw[] = [
         meta: {
           title: 'sku管理',
           hidden: false,
-          icon: 'Orange'
-        }
+          icon: 'Orange',
+        },
       },
       {
         path: '/shop/attr',
@@ -160,9 +160,9 @@ export const constantRoute: RouteRecordRaw[] = [
         meta: {
           title: '属性管理',
           hidden: false,
-          icon: 'ChromeFilled'
-        }
-      }
-    ]
-  }
+          icon: 'ChromeFilled',
+        },
+      },
+    ],
+  },
 ]

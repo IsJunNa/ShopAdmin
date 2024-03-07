@@ -7,7 +7,11 @@
       </div>
       <!-- 左侧主导航栏 -->
       <el-scrollbar class="scrollbar">
-        <el-menu class="el-menu" background-color="$left-nav-color" text-color="white">
+        <el-menu
+          class="el-menu"
+          background-color="$left-nav-color"
+          text-color="white"
+        >
           <mainNav :constantRoute="constantRoute"></mainNav>
         </el-menu>
       </el-scrollbar>
@@ -32,7 +36,6 @@ import RouterRluesStore from '@/store/modules/router'
 let RouterRlues = RouterRluesStore()
 // 路由规则对象变量
 let constantRoute = RouterRlues.constantRoute
-
 </script>
 
 <style lang="scss" scoped>
@@ -60,8 +63,6 @@ let constantRoute = RouterRlues.constantRoute
         border-right: none;
       }
     }
-
-
   }
 
   .topNav {
