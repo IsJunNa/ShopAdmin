@@ -4,34 +4,18 @@
       <el-col :span="13" :xs="0"></el-col>
       <el-col :span="11" :xs="24">
         <div class="loginBox">
-          <p class="title">硅谷甄选管理后台</p>
+          <p class="title">{{ setting.name }}</p>
           <el-form :model="loginInfo" :rules="rules" ref="loginForm">
             <el-form-item prop="username">
-              <el-input
-                v-model="loginInfo.username"
-                placeholder="账号"
-                type="text"
-                :prefix-icon="User"
-                class="input"
-              ></el-input>
+              <el-input v-model="loginInfo.username" placeholder="账号" type="text" :prefix-icon="User"
+                class="input"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input
-                v-model="loginInfo.password"
-                placeholder="密码"
-                type="password"
-                :prefix-icon="Lock"
-                class="input"
-                show-password
-              ></el-input>
+              <el-input v-model="loginInfo.password" placeholder="密码" type="password" :prefix-icon="Lock" class="input"
+                show-password></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button
-                type="primary"
-                class="loginBtn"
-                :loading="loadingFlag"
-                @click="userLogin"
-              >
+              <el-button type="primary" class="loginBtn" :loading="loadingFlag" @click="userLogin">
                 登录
               </el-button>
             </el-form-item>
@@ -64,6 +48,10 @@ let router = useRouter()
 /* 时间信息 */
 import getTime from '@/utils/time'
 
+/* 全局变量 */
+import setting from '@/setting'
+
+
 /* 数据 */
 // 用户登录数据
 let loginInfo = reactive({
@@ -78,15 +66,21 @@ let loginForm = ref()
 let loadingFlag = ref(false)
 
 // 自定义验证规则
-const usernameRules = (rule: object, value: string, callback: any) => {
+const usernameRules = (_: object, value: string, callback: any) => {
   // rule:验证对象 value:表单内容 callback:放行函数
   if (value.length >= 5 && value.length <= 10) callback()
   else callback(new Error('用户名为5-10位英文或数字'))
 }
-const passwordRules = (rule: object, value: string, callback: any) => {
+const passwordRules = (_: object, value: string, callback: any) => {
   if (value.length >= 6 && value.length <= 15) callback()
   else callback(new Error('密码为6-15位英文或数字'))
 }
+
+// 自定义的验证规则
+const rules = ({
+  username: [{ validator: usernameRules, trigger: 'blur' }],
+  password: [{ validator: passwordRules, trigger: 'blur' }],
+})
 
 // element自带表单验证
 /* const rules = {

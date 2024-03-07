@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 import { reqLogin } from '@/api/user'
 /* 数据类型 */
 import { loginForm, loginResponseData } from '@/api/user/type'
-import { userType } from '@/store/type/type'
+import { userType } from '@/store/type/user'
 /* token工具类 */
 import { setToken, getToken } from '@/utils/token'
 
