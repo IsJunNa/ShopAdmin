@@ -205,13 +205,8 @@ const confirm = async () => {
     })
   // 判断是否为当前最后一条数据,是则新增成功后跳转的页数在最大页数基础上加一
   if (total.value % pageSize.value === 0)
-    trademarkData.value.id
-      ? (pageNo.value = pageNo.value)
-      : (pageNo.value = maxPage.value + 1)
-  else
-    trademarkData.value.id
-      ? (pageNo.value = pageNo.value)
-      : (pageNo.value = maxPage.value)
+    trademarkData.value.id ? pageNo.value : (pageNo.value = maxPage.value + 1)
+  else trademarkData.value.id ? pageNo.value : (pageNo.value = maxPage.value)
   // 成功
   if (res.code === 200) {
     // 弹出成功提示框

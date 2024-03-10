@@ -5,7 +5,7 @@ import { constantRoute } from '@/router/route'
 // 引入路由规则数据类型
 import { RouterRluesType } from '../type/router'
 
-let RouterRluesStore = defineStore('router', {
+const RouterRluesStore = defineStore('router', {
   state: (): RouterRluesType => {
     return {
       constantRoute,

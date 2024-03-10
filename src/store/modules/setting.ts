@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-let useSettingStore = defineStore('setting', {
+const useSettingStore = defineStore('setting', {
   state: () => {
     return {
       // 是否折叠

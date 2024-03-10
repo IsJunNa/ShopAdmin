@@ -9,9 +9,8 @@ import { userType } from '@/store/type/user'
 
 /* token工具类 */
 import { setToken, getToken, deleteToken } from '@/utils/token'
-import { ElMessage } from 'element-plus'
 
-let useUserStore = defineStore('User', {
+const useUserStore = defineStore('User', {
   /* 数据 */
   state: (): userType => {
     return {
@@ -28,7 +27,7 @@ let useUserStore = defineStore('User', {
   actions: {
     // 用户登录
     async userLogin(loginInfo) {
-      let res: any = await reqLogin(loginInfo)
+      const res: any = await reqLogin(loginInfo)
       // 登陆成功保存返回的token
       if (res.code === 200) {
         this.token = res.data
