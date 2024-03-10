@@ -12,8 +12,6 @@ import { onMounted } from 'vue'
 onMounted(() => {
   userStore.getUserInfo()
 })
-
-
 </script>
 
 <style lang="scss" scoped></style>

@@ -27,8 +27,3 @@ export interface userInfoResType extends RESTYPE {
     routes: string[]
   }
 }
-
-
-
-
-

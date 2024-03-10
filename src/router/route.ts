@@ -8,7 +8,7 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '登录',
       hidden: true,
-      icon: ''
+      icon: '',
     },
   },
   {
@@ -18,7 +18,7 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '登录',
       hidden: true,
-      icon: ''
+      icon: '',
     },
   },
   // 错误页
@@ -29,7 +29,7 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '404',
       hidden: true,
-      icon: ''
+      icon: '',
     },
   },
   {
@@ -40,7 +40,7 @@ export const constantRoute: RouteRecordRaw[] = [
     meta: {
       title: '404',
       hidden: true,
-      icon: ''
+      icon: '',
     },
   },
   // 首页
@@ -172,7 +172,7 @@ export const constantRoute: RouteRecordRaw[] = [
           hidden: false,
           icon: 'Orange',
         },
-      }
+      },
     ],
   },
 ]

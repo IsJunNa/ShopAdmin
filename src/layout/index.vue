@@ -7,8 +7,13 @@
       </div>
       <!-- 左侧主导航栏 -->
       <el-scrollbar class="scrollbar">
-        <el-menu :collapse="settingStore.fold" class="el-menu" background-color="#001529" text-color="white"
-          :default-active="routePath">
+        <el-menu
+          :collapse="settingStore.fold"
+          class="el-menu"
+          background-color="#001529"
+          text-color="white"
+          :default-active="routePath"
+        >
           <mainNav :constantRoute="constantRoute"></mainNav>
         </el-menu>
       </el-scrollbar>
@@ -42,7 +47,7 @@ let RouterRlues = RouterRluesStore()
 /* 路由规则对象变量 */
 let constantRoute = RouterRlues.constantRoute
 /* 引入setting仓库 */
-import useSettingStore from '@/store/modules/setting';
+import useSettingStore from '@/store/modules/setting'
 let settingStore = useSettingStore()
 </script>
 
@@ -54,7 +59,7 @@ let settingStore = useSettingStore()
     width: $left-nav-width;
     height: 100vh;
     background-color: $left-nav-color;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &.active {
       width: $letf-nav-fold;
@@ -82,7 +87,7 @@ let settingStore = useSettingStore()
     position: fixed;
     left: $left-nav-width;
     top: 0vh;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &.active {
       width: calc(100vw - $left-nav-width + $left-nav-width - $letf-nav-fold);
@@ -98,7 +103,7 @@ let settingStore = useSettingStore()
     top: calc(0vh + $top-nav-height);
     overflow: auto;
     padding: 20px;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &.active {
       width: calc(100vw - $left-nav-width + $left-nav-width - $letf-nav-fold);

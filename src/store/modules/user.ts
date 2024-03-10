@@ -12,7 +12,6 @@ import { setToken, getToken, deleteToken } from '@/utils/token'
 import { ElMessage } from 'element-plus'
 
 let useUserStore = defineStore('User', {
-
   /* 数据 */
   state: (): userType => {
     return {
@@ -21,7 +20,7 @@ let useUserStore = defineStore('User', {
       // 用户信息
       username: '',
       // 用户头像
-      avatar: ''
+      avatar: '',
     }
   },
 
@@ -46,9 +45,9 @@ let useUserStore = defineStore('User', {
       const res = await reqUserInfo()
       if (res.code === 200) {
         // 储存用户信息
-        this.username = res.data.name;
-        this.avatar = res.data.avatar;
-     } 
+        this.username = res.data.name
+        this.avatar = res.data.avatar
+      }
     },
     // 退出登录
     async logout() {
@@ -56,8 +55,7 @@ let useUserStore = defineStore('User', {
       this.avatar = ''
       deleteToken()
       await reqLogout()
-    }
-
+    },
   },
   getters: {},
 })

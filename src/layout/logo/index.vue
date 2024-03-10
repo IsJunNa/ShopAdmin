@@ -8,7 +8,7 @@
 <script setup lang="ts" name="logo">
 import setting from '@/setting'
 /* 引入setting仓库 */
-import useSettingStore from '@/store/modules/setting';
+import useSettingStore from '@/store/modules/setting'
 let settingStore = useSettingStore()
 </script>
 
@@ -29,7 +29,7 @@ let settingStore = useSettingStore()
     color: white;
     font-weight: bold;
     font-size: 25px;
-    white-space: nowrap
+    white-space: nowrap;
   }
 }
 </style>
