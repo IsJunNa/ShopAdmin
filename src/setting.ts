@@ -5,7 +5,7 @@ export default {
   // 主页标题
   title: '硅谷甄选运营平台',
   // 项目logo
-  logo: '/public/logo.jpg',
+  logo: '/logo.jpg',
   // 是否隐藏logo
   logoShow: true,
 }

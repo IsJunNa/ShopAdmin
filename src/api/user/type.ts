@@ -1,38 +1,34 @@
-// 用户登录传参数据类型
-export interface loginForm {
+/* 定义user接口数据 */
+
+// 所有接口返回数据的数据类型(用于继承)
+export interface RESTYPE {
+  code: number
+  message: string
+  ok: boolean
+}
+
+// 用户登录(携带的参数)
+export interface loginDataType {
   username: string
   password: string
 }
-
-// 用户登录返回数据类型
-interface dataType {
-  token?: string
-  message?: string
+// 用户登录(返回数据)
+export interface loginResType extends RESTYPE {
+  data: string
 }
 
-export interface loginResponseData {
-  code: number
-  data: dataType
+// 用户信息(返回数据)
+export interface userInfoResType extends RESTYPE {
+  data: {
+    avatar: string
+    buttons: string[]
+    name: string
+    roles: string[]
+    routes: string[]
+  }
 }
 
-// 用户信息返回数据类型
-interface checkUserType {
-  userId: number
-  avatar: string
-  username: string
-  password: string
-  desc: string
-  roles: string[]
-  buttons: string[]
-  routes: string[]
-  token: string
-}
 
-interface userType {
-  checkUser: checkUserType
-}
 
-export interface userInfoType {
-  code: number
-  data: userType
-}
+
+

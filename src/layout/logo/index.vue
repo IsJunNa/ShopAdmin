@@ -1,12 +1,15 @@
 <template>
   <div class="root">
     <img :src="setting.logo" class="logo" v-if="setting.logoShow" />
-    <h1 class="title">{{ setting.title }}</h1>
+    <h1 class="title" v-show="!settingStore.fold">{{ setting.title }}</h1>
   </div>
 </template>
 
 <script setup lang="ts" name="logo">
 import setting from '@/setting'
+/* 引入setting仓库 */
+import useSettingStore from '@/store/modules/setting';
+let settingStore = useSettingStore()
 </script>
 
 <style lang="scss" scoped>
@@ -26,6 +29,7 @@ import setting from '@/setting'
     color: white;
     font-weight: bold;
     font-size: 25px;
+    white-space: nowrap
   }
 }
 </style>

@@ -1,53 +1,64 @@
 <template>
   <div class="mianBox">
-    <div class="leftNav">
+    <div class="leftNav" :class="{ active: settingStore.fold ? true : false }">
       <!-- 项目logo组件 -->
       <div class="logo">
         <logo></logo>
       </div>
       <!-- 左侧主导航栏 -->
       <el-scrollbar class="scrollbar">
-        <el-menu
-          class="el-menu"
-          background-color="$left-nav-color"
-          text-color="white"
-        >
+        <el-menu :collapse="settingStore.fold" class="el-menu" background-color="#001529" text-color="white"
+          :default-active="routePath">
           <mainNav :constantRoute="constantRoute"></mainNav>
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- 顶部导航条 -->
-    <div class="topNav"></div>
+    <div class="topNav" :class="{ active: settingStore.fold ? true : false }">
+      <tabBar></tabBar>
+    </div>
     <!-- 右侧主内容 -->
-    <div class="content">
+    <div class="content" :class="{ active: settingStore.fold ? true : false }">
       <Main></Main>
-      >
     </div>
   </div>
 </template>
 
 <script setup lang="ts" name="home">
+/* 引入logo组件 */
 import logo from '@/layout/logo/index.vue'
 import mainNav from '@/layout/mainNav/index.vue'
-// 引入右侧主要内容组件
+/* 引入右侧主要内容组件 */
 import Main from '@/views/main/index.vue'
+/* 获取当前页面的路由路径 */
+import { useRoute } from 'vue-router'
+let routePath = useRoute().path
 
+/* 引入顶部tabBar组件 */
+import tabBar from '@/layout/tabBar/index.vue'
 /* 引入路由规则仓库 */
 import RouterRluesStore from '@/store/modules/router'
 let RouterRlues = RouterRluesStore()
-// 路由规则对象变量
+/* 路由规则对象变量 */
 let constantRoute = RouterRlues.constantRoute
+/* 引入setting仓库 */
+import useSettingStore from '@/store/modules/setting';
+let settingStore = useSettingStore()
 </script>
 
 <style lang="scss" scoped>
 .mianBox {
-  width: 100vw;
   height: 100vh;
 
   .leftNav {
     width: $left-nav-width;
     height: 100vh;
     background-color: $left-nav-color;
+    transition: all .3s;
+
+    &.active {
+      width: $letf-nav-fold;
+    }
 
     .logo {
       height: calc($left-nav-logo-height + 40px);
@@ -56,7 +67,6 @@ let constantRoute = RouterRlues.constantRoute
     }
 
     .scrollbar {
-      width: 100%;
       height: calc(100% - $left-nav-logo-height - 40px);
       overflow: auto;
 
@@ -72,7 +82,12 @@ let constantRoute = RouterRlues.constantRoute
     position: fixed;
     left: $left-nav-width;
     top: 0vh;
-    background-color: greenyellow;
+    transition: all .3s;
+
+    &.active {
+      width: calc(100vw - $left-nav-width + $left-nav-width - $letf-nav-fold);
+      left: calc($left-nav-width - $left-nav-width + $letf-nav-fold);
+    }
   }
 
   .content {
@@ -83,7 +98,12 @@ let constantRoute = RouterRlues.constantRoute
     top: calc(0vh + $top-nav-height);
     overflow: auto;
     padding: 20px;
-    background-color: rgb(106, 106, 45);
+    transition: all .3s;
+
+    &.active {
+      width: calc(100vw - $left-nav-width + $left-nav-width - $letf-nav-fold);
+      left: calc($left-nav-width - $left-nav-width + $letf-nav-fold);
+    }
   }
 }
 </style>

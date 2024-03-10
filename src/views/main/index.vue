@@ -1,7 +1,40 @@
+<!-- 右侧内容展示区 -->
 <template>
-  <router-view></router-view>
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <component :is="Component" v-if="flag" />
+    </transition>
+  </router-view>
 </template>
 
-<script setup lang="ts" name="main"></script>
+<script setup lang="ts" name="main">
+// 引入setting仓库
+import useSettingStore from '@/store/modules/setting'
+const settingStore = useSettingStore()
+// 监视refresh的值是否发生变化,变化销毁重新加载组件
+import { watch, ref, nextTick } from 'vue'
+let flag = ref(true)
+watch(() => settingStore.refresh, () => {
+  flag.value = false
+  nextTick(() => {
+    flag.value = true
+  })
+})
 
-<style lang="scss" scoped></style>
+
+
+</script>
+
+<style lang="scss" scoped>
+.fade-enter-from {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  transition: all 1s;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+</style>

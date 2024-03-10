@@ -24,5 +24,8 @@ app.use(router)
 // 引入pinia
 import pinia from '@/store'
 app.use(pinia)
+// 引入路由守卫
+import '@/router/permission'
+
 // 挂载
 app.mount('#app')

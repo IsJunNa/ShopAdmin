@@ -7,31 +7,15 @@
           <p class="title">{{ setting.name }}</p>
           <el-form :model="loginInfo" :rules="rules" ref="loginForm">
             <el-form-item prop="username">
-              <el-input
-                v-model="loginInfo.username"
-                placeholder="账号"
-                type="text"
-                :prefix-icon="User"
-                class="input"
-              ></el-input>
+              <el-input v-model="loginInfo.username" placeholder="账号" type="text" :prefix-icon="User"
+                class="input"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input
-                v-model="loginInfo.password"
-                placeholder="密码"
-                type="password"
-                :prefix-icon="Lock"
-                class="input"
-                show-password
-              ></el-input>
+              <el-input v-model="loginInfo.password" placeholder="密码" type="password" :prefix-icon="Lock" class="input"
+                show-password></el-input>
             </el-form-item>
             <el-form-item>
-              <el-button
-                type="primary"
-                class="loginBtn"
-                :loading="loadingFlag"
-                @click="userLogin"
-              >
+              <el-button type="primary" class="loginBtn" :loading="loadingFlag" @click="userLogin">
                 登录
               </el-button>
             </el-form-item>
@@ -60,6 +44,8 @@ let userStore = useUserStore()
 /* 路由跳转 */
 import { useRouter } from 'vue-router'
 let router = useRouter()
+import { useRoute } from 'vue-router'
+let route = useRoute()
 
 /* 时间信息 */
 import getTime from '@/utils/time'
@@ -71,7 +57,7 @@ import setting from '@/setting'
 // 用户登录数据
 let loginInfo = reactive({
   username: 'admin',
-  password: '123456',
+  password: '111111',
 })
 
 // 表单组件
@@ -110,14 +96,16 @@ const rules = {
 /* 方法 */
 // 用户登录
 const userLogin = async () => {
+
   // 是否通过表单验证
   await loginForm.value.validate()
-
+  // 开启加载小圆圈
   loadingFlag.value = true
   // 登录成功
   try {
     await userStore.userLogin(loginInfo)
-    router.push('/home')
+    let path: any = route.query.path
+    router.push({ path: path || '/home' })
     ElNotification({
       type: 'success',
       message: '登陆成功',
@@ -130,6 +118,7 @@ const userLogin = async () => {
       message: error,
     })
   } finally {
+    // 关闭加载小圆圈
     loadingFlag.value = false
   }
 }

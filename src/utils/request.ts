@@ -1,15 +1,22 @@
 import axios from 'axios'
+// 引入element弹窗组件
 import { ElMessage } from 'element-plus'
+// 引入user小仓库获取token
+import { getToken } from '@/utils/token'
 
 //对axios二次封装
 let request = axios.create({
-  baseURL: import.meta.env.VITE_APP_BASE_API,
+  baseURL: import.meta.env.VITE_APP_URL,
   timeout: 5000, //超时时间
 })
+
 // 请求拦截器
 request.interceptors.request.use((config) => {
+  // 将token携带进请求头中
+  if (getToken()) config.headers.token = getToken()
   return config
 })
+
 // 响应拦截器
 request.interceptors.response.use(
   (response) => {
