@@ -6,7 +6,7 @@ const useSettingStore = defineStore('setting', {
       // 是否折叠
       fold: false,
       // 是否刷新
-      refresh: false,
+      refresh: false
     }
   },
   actions: {

@@ -6,32 +6,24 @@
         <div class="loginBox">
           <p class="title">{{ setting.name }}</p>
           <el-form :model="loginInfo" :rules="rules" ref="loginForm">
+            <!-- 用户名 -->
             <el-form-item prop="username">
-              <el-input
-                v-model="loginInfo.username"
-                placeholder="账号"
-                type="text"
-                :prefix-icon="User"
-                class="input"
-              ></el-input>
+              <el-input v-model="loginInfo.username" placeholder="账号" type="text" prefix-icon="User"
+                class="input"></el-input>
             </el-form-item>
+            <!-- 密码 -->
             <el-form-item prop="password">
-              <el-input
-                v-model="loginInfo.password"
-                placeholder="密码"
-                type="password"
-                :prefix-icon="Lock"
-                class="input"
-                show-password
-              ></el-input>
+              <el-input v-model="loginInfo.password" placeholder="密码" type="password" prefix-icon="Lock" class="input"
+                show-password></el-input>
             </el-form-item>
+            <!-- 验证码 -->
+            <el-form-item prop="code">
+              <el-input v-model="codeStore.code" placeholder="验证码" prefix-icon="Message"></el-input>
+            </el-form-item>
+            <Code :code="loginInfo.code" class="code"></Code>
+            <!-- 登录按钮 -->
             <el-form-item>
-              <el-button
-                type="primary"
-                class="loginBtn"
-                :loading="loadingFlag"
-                @click="userLogin"
-              >
+              <el-button type="primary" class="loginBtn" :loading="loadingFlag" @click="userLogin">
                 登录
               </el-button>
             </el-form-item>
@@ -43,10 +35,6 @@
 </template>
 
 <script setup lang="ts" name="login">
-/* element图标 */
-import { User } from '@element-plus/icons-vue'
-import { Lock } from '@element-plus/icons-vue'
-
 /* element提示 */
 import { ElNotification } from 'element-plus'
 
@@ -56,6 +44,10 @@ import { ref, reactive } from 'vue'
 /* 用户相关数据仓库 */
 import useUserStore from '@/store/modules/user'
 let userStore = useUserStore()
+
+/* 验证码相关数据仓库 */
+import useCodeStore from '@/store/modules/code';
+const codeStore = useCodeStore();
 
 /* 路由跳转 */
 import { useRouter } from 'vue-router'
@@ -74,6 +66,7 @@ import setting from '@/setting'
 let loginInfo = reactive({
   username: 'admin',
   password: '111111',
+  code: ''
 })
 
 // 表单组件
@@ -92,11 +85,18 @@ const passwordRules = (_: object, value: string, callback: any) => {
   if (value.length >= 6 && value.length <= 15) callback()
   else callback(new Error('密码为6-15位英文或数字'))
 }
+const codeRules = (_: object, value: string, callback: any) => {
+  if (codeStore.checkCode()) callback()
+  else {
+    callback(new Error('验证码错误'))
+  }
+}
 
 // 自定义的验证规则
 const rules = {
   username: [{ validator: usernameRules, trigger: 'blur' }],
   password: [{ validator: passwordRules, trigger: 'blur' }],
+  code: [{ validator: codeRules, trigger: 'blur' }]
 }
 
 // element自带表单验证
@@ -126,6 +126,7 @@ const userLogin = async () => {
       message: '登陆成功',
       title: `Hi,${getTime()}`,
     })
+
     // 登陆失败
   } catch (error) {
     ElNotification({
@@ -163,6 +164,10 @@ const userLogin = async () => {
       text-align: center;
       line-height: 50px;
       margin: 10px auto;
+    }
+
+    .code {
+      margin-top: 5px;
     }
 
     .loginBtn {

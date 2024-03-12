@@ -13,7 +13,7 @@ const userStore = useUserStore(pinia)
 import setting from '@/setting'
 
 // 全局前置守卫
-router.beforeEach((to, _, next) => {
+router.beforeEach(async (to, _, next) => {
   // 没有token
   if (!userStore.token) {
     if (to.path !== '/login') next({ path: '/login' })

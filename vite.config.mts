@@ -49,7 +49,7 @@ export default defineConfig(({ command, mode }) => {
           target: env.VITE_APP_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
-        },
+        }
       },
     },
   }

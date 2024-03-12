@@ -7,7 +7,7 @@
   </router-view>
 </template>
 
-<script setup lang="ts" name="main">
+<script setup lang="ts" name="Main">
 // 引入setting仓库
 import useSettingStore from '@/store/modules/setting'
 const settingStore = useSettingStore()

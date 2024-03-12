@@ -4,7 +4,7 @@ export const constantRoute: RouteRecordRaw[] = [
   // 登录页
   {
     path: '/',
-    component: import('@/views/login/index.vue'),
+    component: () => import('@/views/login/index.vue'),
     meta: {
       title: '登录',
       hidden: true,
@@ -13,7 +13,7 @@ export const constantRoute: RouteRecordRaw[] = [
   },
   {
     path: '/login',
-    component: import('@/views/login/index.vue'),
+    component: () => import('@/views/login/index.vue'),
     name: 'login',
     meta: {
       title: '登录',
@@ -24,7 +24,7 @@ export const constantRoute: RouteRecordRaw[] = [
   // 错误页
   {
     path: '/error',
-    component: import('@/views/error/index.vue'),
+    component: () => import('@/views/error/index.vue'),
     name: 'error',
     meta: {
       title: '404',
@@ -69,7 +69,7 @@ export const constantRoute: RouteRecordRaw[] = [
   // 数据大屏模块
   {
     path: '/screen',
-    component: import('@/views/screen/index.vue'),
+    component: () => import('@/views/screen/index.vue'),
     name: 'screen',
     meta: {
       title: '数据大屏',
@@ -80,7 +80,7 @@ export const constantRoute: RouteRecordRaw[] = [
   // 权限管理模块
   {
     path: '/acl',
-    component: import('@/layout/index.vue'),
+    component: () => import('@/layout/index.vue'),
     name: 'acl',
     meta: {
       title: '权限管理',
@@ -91,7 +91,7 @@ export const constantRoute: RouteRecordRaw[] = [
     children: [
       {
         path: '/acl/user',
-        component: import('@/views/acl/user/index.vue'),
+        component: () => import('@/views/acl/user/index.vue'),
         name: 'user',
         meta: {
           title: '用户管理',
@@ -101,7 +101,7 @@ export const constantRoute: RouteRecordRaw[] = [
       },
       {
         path: '/acl/role',
-        component: import('@/views/acl/role/index.vue'),
+        component: () => import('@/views/acl/role/index.vue'),
         name: 'role',
         meta: {
           title: '角色管理',
@@ -111,7 +111,7 @@ export const constantRoute: RouteRecordRaw[] = [
       },
       {
         path: '/acl/permission',
-        component: import('@/views/acl/permission/index.vue'),
+        component: () => import('@/views/acl/permission/index.vue'),
         name: 'permission',
         meta: {
           title: '菜单管理',
@@ -124,7 +124,7 @@ export const constantRoute: RouteRecordRaw[] = [
   // 商品管理模块
   {
     path: '/shop',
-    component: import('@/layout/index.vue'),
+    component: () => import('@/layout/index.vue'),
     name: 'shop',
     meta: {
       title: '商品管理',
@@ -135,7 +135,7 @@ export const constantRoute: RouteRecordRaw[] = [
     children: [
       {
         path: '/shop/strdmark',
-        component: import('@/views/shop/strdmark/index.vue'),
+        component: () => import('@/views/shop/strdmark/index.vue'),
         name: 'strdmark',
         meta: {
           title: '品牌管理',
@@ -145,7 +145,7 @@ export const constantRoute: RouteRecordRaw[] = [
       },
       {
         path: '/shop/attr',
-        component: import('@/views/shop/attr/index.vue'),
+        component: () => import('@/views/shop/attr/index.vue'),
         name: 'attr',
         meta: {
           title: '属性管理',
@@ -155,7 +155,7 @@ export const constantRoute: RouteRecordRaw[] = [
       },
       {
         path: '/shop/spu',
-        component: import('@/views/shop/spu/index.vue'),
+        component: () => import('@/views/shop/spu/index.vue'),
         name: 'spu',
         meta: {
           title: 'SPU管理',
@@ -165,7 +165,7 @@ export const constantRoute: RouteRecordRaw[] = [
       },
       {
         path: '/shop/sku',
-        component: import('@/views/shop/sku/index.vue'),
+        component: () => import('@/views/shop/sku/index.vue'),
         name: 'sku',
         meta: {
           title: 'SKU管理',

@@ -4,14 +4,14 @@ import request from '@/utils/request'
 import { recordsType } from '@/api/shop/strdmark/type'
 
 enum API {
-  // 获取品牌列表接口
-  TRADEMARK_URL = '/admin/product/baseTrademark/',
   // 新增品牌接口
   ADDTRADEMARK_URL = '/admin/product/baseTrademark/save',
-  // 修改品牌接口
-  UPDATETRADEMARK_URL = '/admin/product/baseTrademark/update',
   // 删除品牌接口
   DELETETETRADEMARK_URL = '/admin/product/baseTrademark/remove/',
+  // 修改品牌接口
+  UPDATETRADEMARK_URL = '/admin/product/baseTrademark/update',
+  // 获取品牌列表接口
+  GETTRADEMARK_URL = '/admin/product/baseTrademark/'
 }
 // 引入数据类型
 import { strdmarkResType } from '@/api/shop/strdmark/type'
@@ -19,7 +19,7 @@ import { strdmarkResType } from '@/api/shop/strdmark/type'
 // 获取品牌列表 page:获取第几页 limit:每一页获取几个品牌数据
 export const reqHasTrademark = (page: number, limit: number) =>
   request<any, strdmarkResType>({
-    url: API.TRADEMARK_URL + `${page}/${limit}`,
+    url: API.GETTRADEMARK_URL + `${page}/${limit}`,
     method: 'GET',
   })
 

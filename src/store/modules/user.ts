@@ -9,6 +9,7 @@ import { userType } from '@/store/type/user'
 
 /* token工具类 */
 import { setToken, getToken, deleteToken } from '@/utils/token'
+import { ElMessage } from 'element-plus'
 
 const useUserStore = defineStore('User', {
   /* 数据 */
@@ -19,7 +20,7 @@ const useUserStore = defineStore('User', {
       // 用户信息
       username: '',
       // 用户头像
-      avatar: '',
+      avatar: ''
     }
   },
 
@@ -46,12 +47,15 @@ const useUserStore = defineStore('User', {
         // 储存用户信息
         this.username = res.data.name
         this.avatar = res.data.avatar
+      } else {
+        ElMessage({ type: "error", message: '获取用户信息失败' })
       }
     },
     // 退出登录
     async logout() {
       this.username = ''
       this.avatar = ''
+      this.token = ''
       deleteToken()
       await reqLogout()
     },
