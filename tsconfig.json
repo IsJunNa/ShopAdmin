@@ -31,7 +31,12 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/utils/codeImg.js"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/utils/codeImg.js"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

@@ -7,7 +7,11 @@
     </el-icon>
     <!-- 面包屑 -->
     <el-breadcrumb separator-icon="ArrowRight">
-      <el-breadcrumb-item v-show="item.meta.title" v-for="item in $route.matched" :key="item.path">
+      <el-breadcrumb-item
+        v-show="item.meta.title"
+        v-for="item in $route.matched"
+        :key="item.path"
+      >
         <span class="breadCrumbItem">
           <el-icon class="itemIcon">
             <component v-if="item.meta.icon" :is="item.meta.icon"></component>

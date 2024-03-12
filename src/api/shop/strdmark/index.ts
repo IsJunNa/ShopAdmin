@@ -11,7 +11,7 @@ enum API {
   // 修改品牌接口
   UPDATETRADEMARK_URL = '/admin/product/baseTrademark/update',
   // 获取品牌列表接口
-  GETTRADEMARK_URL = '/admin/product/baseTrademark/'
+  GETTRADEMARK_URL = '/admin/product/baseTrademark/',
 }
 // 引入数据类型
 import { strdmarkResType } from '@/api/shop/strdmark/type'

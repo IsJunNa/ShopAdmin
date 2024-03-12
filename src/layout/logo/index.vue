@@ -1,7 +1,9 @@
 <template>
   <div class="root">
     <img :src="setting.logo" class="logo" v-if="setting.logoShow" />
-    <h1 class="title" v-show="!settingStore.fold" v-if="setting.titleShow">{{ setting.title }}</h1>
+    <h1 class="title" v-show="!settingStore.fold" v-if="setting.titleShow">
+      {{ setting.title }}
+    </h1>
   </div>
 </template>
 

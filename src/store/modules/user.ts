@@ -20,7 +20,7 @@ const useUserStore = defineStore('User', {
       // 用户信息
       username: '',
       // 用户头像
-      avatar: ''
+      avatar: '',
     }
   },
 
@@ -48,7 +48,7 @@ const useUserStore = defineStore('User', {
         this.username = res.data.name
         this.avatar = res.data.avatar
       } else {
-        ElMessage({ type: "error", message: '获取用户信息失败' })
+        ElMessage({ type: 'error', message: '获取用户信息失败' })
       }
     },
     // 退出登录

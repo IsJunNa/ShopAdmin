@@ -29,6 +29,5 @@ import '@/router/permission'
 // 根据屏幕宽度大小自动收缩左侧导航栏
 import '@/utils/adapt'
 
-
 // 挂载
 app.mount('#app')

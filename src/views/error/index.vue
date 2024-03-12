@@ -1,5 +1,5 @@
 <template>
-  <img :src="imgUrl" @click="getCode" v-if="flag">
+  <img :src="imgUrl" @click="getCode" v-if="flag" />
 </template>
 
 <script setup lang="ts" name="error">
@@ -14,7 +14,6 @@ const getCode = async () => {
 onMounted(() => {
   getCode()
 })
-
 </script>
 
 <style lang="scss" scoped></style>

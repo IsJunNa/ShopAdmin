@@ -11,5 +11,5 @@ export default {
   // 是否显示主页标题
   titleShow: true,
   // 是否根据屏幕宽度自适应显示隐藏主页左侧导航区logo与标题(开启后logoShow,titleShow不再生效)
-  adapt: true
+  adapt: true,
 }
