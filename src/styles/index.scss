@@ -1,0 +1,20 @@
+@import './reset.scss';
+@import "./variable.scss";
+
+/* 滚动条样式 */
+// 滚动条宽度
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+// 滚动条背景颜色
+::-webkit-scrollbar-track {
+    background-color: $left-nav-color;
+}
+
+// 滚动条颜色
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    background-color: rgb(111, 124, 127);
+    border-radius: 10px;
+}
