@@ -1,9 +1,9 @@
 // 全局变量
 export default {
   // 登录页名称
-  name: '小黄鸭商城运营平台',
+  name: '智能手机销售系统',
   // 主页标题
-  title: '小黄鸭商城运营平台',
+  title: '智能手机销售平台',
   // 项目logo
   logo: '/logo.jpg',
   // 是否显示主页logo
