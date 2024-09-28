@@ -109,7 +109,7 @@ const passwordRules = (_: object, value: string, callback: any) => {
   if (value.length >= 6 && value.length <= 15) callback()
   else callback(new Error('密码为6-15位英文或数字'))
 }
-const codeRules = (_, __, callback: any) => {
+const codeRules = (_: any, __: any, callback: any) => {
   if (codeStore.checkCode()) callback()
   else {
     ElNotification({
